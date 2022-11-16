@@ -1,0 +1,16 @@
+
+
+.incident-form{
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: column;
+}
+
+.form-fields{
+    padding: 5px 5px 5px 5px;
+}
+
+.form-inputs{
+    width: 75%; 
+    float: right;
+}

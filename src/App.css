@@ -65,11 +65,11 @@
   flex-direction: column;
 }
 
-/* .jobTitle {
+.jobTitle {
   margin-bottom: 1rem;
   font-weight: 500;
   display: block;
-} */
+}
 
 .totalJobViewsGrid {
   list-style: none;
