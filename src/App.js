@@ -1,6 +1,6 @@
 import USA_States_by_Incidents_1959_2018 from './Assets/2. USA States by Incidents 1959-2018.png'
 import CA_Incidents_by_County from './Assets/5_All CA Incidents by County Percentage.png'
-import CA_Species_by_County from './Assets/17. Species and percentages by county.png'
+//import CA_Species_by_County from './Assets/17. Species and percentages by county.png'
 //import CA_Northern_Southern_Heatmap from './Assets/13_CA days of shark attacks_4.png'
 import "@progress/kendo-theme-material/dist/all.css";
 import "./App.css";
@@ -10,8 +10,10 @@ import "./App.css";
 import StaticImage from "./components/StaticImage";
 //import { format } from '@progress/kendo-intl';
 import IncidentForm from "./components/IncidentForm";
-import MostRecent from "./components/MostRecent.js";
 
+import MostRecent from "./components/MostRecent";
+
+//import Map from "./components/Map"
 
 
 const initialPositions = [
@@ -71,7 +73,6 @@ const getPositions = initialPositions => {
 //   }
 
 
-
 function App() {
   const [positions, setPositions] = useState(getPositions(initialPositions));
 
@@ -94,16 +95,10 @@ const widgets = [
   },
 
 {
-  body: <MostRecent
-  />
+    body: <MostRecent
+    //body: <Map
+    />
 },
-
-  // {
-  //   body: <StaticImage
-  //   imageSource= {CA_Species_by_County}
-  //   imageAlt = "CA County and Species"
-  //   />,
-  // },
 
   {
     body: <IncidentForm

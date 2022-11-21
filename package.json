@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@googlemaps/react-wrapper": "^1.1.35",
     "@progress/kendo-data-query": "^1.6.0",
     "@progress/kendo-drawing": "^1.17.1",
     "@progress/kendo-licensing": "^1.2.2",
@@ -23,7 +24,9 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "google-map-react": "^2.2.0",
     "hammerjs": "^2.0.8",
+    "lodash": "^4.17.21",
     "mongoose": "^6.7.2",
     "r-integration": "^2.4.0",
     "react": "^18.2.0",
@@ -55,5 +58,9 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:4000"
+  "proxy": "http://localhost:4000",
+  "devDependencies": {
+    "@iconify/icons-mdi": "^1.2.32",
+    "@iconify/react": "^4.0.0"
+  }
 }
