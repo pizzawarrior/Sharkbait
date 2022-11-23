@@ -10,8 +10,8 @@ import "./App.css";
 import StaticImage from "./components/StaticImage";
 //import { format } from '@progress/kendo-intl';
 import IncidentForm from "./components/IncidentForm";
-
 import MostRecent from "./components/MostRecent";
+import TopLocations from "./components/TopLocations";
 
 //import Map from "./components/Map"
 
@@ -86,13 +86,20 @@ const widgets = [
      />,
    },
   
-  {
-    //header: "Where are shark encounters occurring in California?",
-    body: <StaticImage 
-    imageSource ={CA_Incidents_by_County}
-    imageAlt = "CA Pie Chart Counties"
-    />,
-  },
+   {
+    body: <TopLocations
+    //body: <Map
+    />
+},
+
+
+  // {
+  //   //header: "Where are shark encounters occurring in California?",
+  //   body: <StaticImage 
+  //   imageSource ={CA_Incidents_by_County}
+  //   imageAlt = "CA Pie Chart Counties"
+  //   />,
+  // },
 
 {
     body: <MostRecent

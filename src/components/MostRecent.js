@@ -1,18 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { Wrapper } from "@googlemaps/react-wrapper";
 import isEqual from 'lodash/isEqual';
-//Does this help????
-import GoogleMapReact from 'google-map-react';
+import Geocode from "react-geocode";
+
 
 const Map = ({
   //onClick,
   //onIdle,
-  children,
+  children, 
+  incidents,
   style,
   ...options
 }) => {
   const ref = React.useRef(null);
   const [map, setMap] = React.useState();
+
+  const [Geocoder, setGeocoder] = React.useState();
+
+React.useEffect(() => {
+  if (!Geocoder) {
+    setGeocoder(new window.google.maps.Geocoder());
+  }
+}, 
+[Geocoder]);
 
   React.useEffect(() => {
     if (ref.current && !map) {
@@ -30,13 +40,12 @@ const Map = ({
   }, [map, options]
   );
 
-  const service = new window.google.maps.places.PlacesService(map)
-  service.findPlaceFromQuery ("Salmon Creek", (first, second)=> {
-    console.log(first)
-    console.log(second)
-  }
-  )
-
+  // const service = new window.google.maps.places.PlacesService(map)
+  // service.findPlaceFromQuery ("Salmon Creek", (first, second)=> {
+  //   console.log(first)
+  //   console.log(second)
+  // }
+  // )
 
   //React.useEffect(() => {
     //if (map) {
@@ -57,12 +66,30 @@ const Map = ({
   return (
     <>
       <div ref={ref} style={style} />
-      {React.Children.map(children, (child) => {
+      {incidents.map (incident => {
+        console.log(incident)
+          Geocoder.geocode( { 'address': incident.location + " " + incident.area}, function(results, status) {
+            if (status === 'OK') {
+
+              var marker = new window.google.maps.Marker({
+                  map: map,
+                  position: results[0].geometry.location
+              });
+            } else {
+              alert('Geocode was not successful for the following reason: ' + status);
+            }
+          });
+            // return React.cloneElement(<Marker key = {incident._id} 
+            //   position= {{lat: 37.6,lng: -120.55}}/>, { map })
+      })
+     }
+
+      {/* {React.Children.map(children, (child) => {
         if (React.isValidElement(child)) {
           // set the map prop on the child component
           return React.cloneElement(child, { map });
         }
-      })}
+      })} */}
     </>
   );
 };
@@ -138,6 +165,7 @@ const MostRecent = ({imageSource, imageAlt}) => {
 const [mostRecent, setMostRecent] = useState([
 ])
 
+//Wouldn't this be at odds with the Loader call at the very top?
 const [center, setCenter] = React.useState({
   lat: 37.6,
   lng: -120.55,
@@ -152,6 +180,9 @@ const [center, setCenter] = React.useState({
       })
         .then((response) => response.json())
         .then((incidents) => {
+          const incidentToGeocode = 
+           {location : incidents[9].location, area: incidents[9].area}
+          console.log(incidentToGeocode.location, incidentToGeocode.area)
             setMostRecent(incidents)
           //console.log('Success:', incidents);
          })
@@ -174,13 +205,13 @@ const [center, setCenter] = React.useState({
             </div>
             <Map
           center={center}
+          //can change in future so it's not just pullihg in one incident:
+          incidents = {mostRecent.length ? [mostRecent[8]]: []}
           // onClick={onClick}
           // onIdle={onIdle}
           zoom={5.5}
           style={{ flexGrow: "1", height: "100%" }}
             >
-            <Marker position={{ lat: 37.6,lng: -120.55}}
-            />
           </Map>
       </Wrapper>
       );  

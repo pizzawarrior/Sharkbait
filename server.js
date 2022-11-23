@@ -132,19 +132,18 @@ res.json(incident)
 // });
 
 
-
 //INDEX route:
 app.get('/MostRecent', function(req, res) {
 // executes, passing results to callback
 RecordedIncident.
     find({ 
         area: 'California'
-    }).
+    })
     //sort by most recent
-    sort({date: -1}).
+    .sort({date: -1})
     //filter to 10 results
-    limit(10).
-    exec(
+    .limit(10)
+    .exec(
     function (err, result) {
     console.log(result)
     res.json(result)
@@ -153,8 +152,30 @@ RecordedIncident.
 });
 
 
-
-
+//Additional route: Top 10 locations with most frequent incidents, last 20 years::::
+app.get('/TopLocations', function(req, res) {
+RecordedIncident
+.aggregate([{ "$match": { "area": "California" } },
+    {
+      $group: {
+        _id: '$location',
+        count: { $sum: 1 } // this means that the count will increment by 1
+      }
+    },
+    {$sort: {count:-1}}, 
+    {$limit:11}
+  ])
+//Group by location (aka aggregate)
+//Find count > 1
+//Sort past 20 years
+//limit(10).
+.exec(
+function (err, result) {
+console.log(result)
+res.json(result)
+}
+);
+});
 
 
 
