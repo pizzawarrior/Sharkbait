@@ -66,7 +66,6 @@ app.get('/RecordedIncident', function(req, res) {
 });
 });
 
-
 //Let's get some routes (uri = HTTP) going:
 //SHOW route:
 app.get('/RecordedIncident/:id', (req, res) => {
@@ -152,7 +151,7 @@ RecordedIncident.
 });
 
 
-//Additional route: Top 10 locations with most frequent incidents, last 20 years::::
+//Additional route: Top 10 locations with most frequent incidents
 app.get('/TopLocations', function(req, res) {
 RecordedIncident
 .aggregate([{ "$match": { "area": "California" } },
@@ -167,7 +166,6 @@ RecordedIncident
   ])
 //Group by location (aka aggregate)
 //Find count > 1
-//Sort past 20 years
 //limit(10).
 .exec(
 function (err, result) {

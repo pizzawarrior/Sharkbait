@@ -5,7 +5,7 @@ import {useEffect} from 'react'
 function TopLocations() { 
 
     useEffect(() => {
-
+//The locations are hard coded (duh), results pulled from Mongoose search in server.js file
         let Locations = [
     {_id: "Huntington Beach, Orange County", count: 7},
     {_id: "San Onofre, San Diego County", count: 5},
@@ -19,7 +19,7 @@ function TopLocations() {
     {_id: "Franklin Point, San Mateo County", count: 4}
     ]
 
-            d3.select('#pgraphs').selectAll('p').data(Locations).enter().append('p').text(dt => dt._id + ": " + dt.count)
+        d3.select('#pgraphs').selectAll('p').data(Locations).enter().append('p').text(dt => dt._id + ": " + dt.count)
       
       // Bar Chart:
       const getMax = () => { // Calculate the maximum value in the DataSet
