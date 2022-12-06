@@ -38,6 +38,7 @@ let RecordedIncident = mongoose.model("RecordedIncident", RecordedIncidentSchema
 
 
 //This is to get the data to nest into the 'fields' document properly. Only needs to run once
+//Was necessitated by search results only pulling 1 result, due to fields working improperly
 //Add to seed.js folder
 // let sharks = JSON.parse(
 //     fs.readFileSync(`/Users/ME/Desktop/global-shark-attack.json`, "utf-8")
@@ -118,7 +119,7 @@ res.json(incident)
 // });
 
 
-//Probably don't need the DELETE route?
+//Probably don't need the DELETE route..(Not Included)
 
 
 //Let's try R integration: It works, but do we need it?
@@ -162,7 +163,8 @@ RecordedIncident
       }
     },
     {$sort: {count:-1}}, 
-    {$limit:11}
+    //Note the limit size here: This is because the data returns a couple of unfavorable results that should be cleaned up
+    {$limit:12}
   ])
 //Group by location (aka aggregate)
 //Find count > 1

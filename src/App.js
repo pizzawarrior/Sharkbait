@@ -50,29 +50,6 @@ const getPositions = initialPositions => {
   );
 };
 
-// //Create submit form
-// const SubmitForm = () => {
-//   //return 'div: hi'
-//   //->date, location, name
-// const handleSubmit = (event) => {
-//     //Can we cover what happened here again? (event)
-//     event.preventDefault() //here too ??
-//     console.log('hi')
-// }
-
-//   return (
-//     <form>
-//       <input/>
-//       <input/>
-//       <input/>
-
-//   <button type = 'submit'>
-//       submit </button>
-//       </form>
-//     );
-//   }
-
-
 function App() {
   const [positions, setPositions] = useState(getPositions(initialPositions));
 
@@ -87,11 +64,11 @@ const widgets = [
    },
   
    {
+    header: "Top Incident Locations in California",
     body: <TopLocations
     //body: <Map
     />
 },
-
 
   // {
   //   //header: "Where are shark encounters occurring in California?",
@@ -108,6 +85,7 @@ const widgets = [
 },
 
   {
+    header: "Report A New Incident",
     body: <IncidentForm
   />,
   }

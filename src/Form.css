@@ -1,16 +1,25 @@
 
-
-.incident-form{
+.incident-form{ 
     /* background-color: blue; */
     display: flex;
     flex-direction: column;
+    /* margin: 5px, 5px; */
+    font-size: 16px;
+
 }
 
 .form-fields{
-    padding: 5px 5px 5px 5px;
+    padding: 5px 5px 5px 10px;
 }
 
 .form-inputs{
-    width: 75%; 
+    box-sizing: border-box;
+    height: 39px;
+    /* width: 300px; */
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 65%; 
     float: right;
+    /* Input field type: */
+    font-size: 16px;
 }

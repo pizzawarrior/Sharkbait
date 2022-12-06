@@ -14,7 +14,7 @@ function TopLocations() {
     {_id: "Venice Beach, Los Angeles County", count: 4},
     {_id: "Farallon Islands, San Francisco County", count: 4},
     {_id: "Santa Monica, Los Angeles County", count: 4},
-    {_id: "San Onofre State Beach, San Diego County", count: 4},
+    {_id: "Moonstone Beach, Humboldt County", count: 4},
     {_id: "Dillon Beach, Marin County", count: 4},
     {_id: "Franklin Point, San Mateo County", count: 4}
     ]
@@ -36,8 +36,9 @@ function TopLocations() {
   
       //Transition the bars into having a height based on their corresponding count value
       d3.select('#BarChart').selectAll('.bar')
-      .transition().duration(1000).style('height', bar => `${bar.count}px`)
-        .style('width', '80px').style('margin-right', '10px').delay(300) // Fix their width and margin
+      .transition().duration(1000).style('height', 
+      bar => `${bar.count *6}px`) //note the *6 here is a hacky way to make the bars taller
+        .style('width', '80px').style('margin-right', '15px').delay(300) // Fix their width and margin
       
   }, [])
 

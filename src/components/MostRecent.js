@@ -40,29 +40,6 @@ React.useEffect(() => {
   }, [map, options]
   );
 
-  // const service = new window.google.maps.places.PlacesService(map)
-  // service.findPlaceFromQuery ("Salmon Creek", (first, second)=> {
-  //   console.log(first)
-  //   console.log(second)
-  // }
-  // )
-
-  //React.useEffect(() => {
-    //if (map) {
-      //["click", "idle"].forEach((eventName) =>
-        //google.maps.event.clearListeners(map, eventName)
-      //);
-
-      //if (onClick) {
-        //map.addListener("click", onClick);
-      //}
-
-      //if (onIdle) {
-        //map.addListener("idle", () => onIdle(map));
-      //}
-    //}
-  //}, [map, onClick, onIdle]);
-
   return (
     <>
       <div ref={ref} style={style} />
@@ -118,23 +95,6 @@ const Marker = (options) => {
   return null;
 };
 
-// const deepCompareEqualsForMaps = createCustomEqual(
-//   (deepEqual) => (a: any, b: any) => {
-//     if (
-//       isLatLngLiteral(a) ||
-//       a instanceof google.maps.LatLng ||
-//       isLatLngLiteral(b) ||
-//       b instanceof google.maps.LatLng
-//     ) {
-//       return new google.maps.LatLng(a).equals(new google.maps.LatLng(b));
-//     }
-
-//     // TODO: extend to other types
-
-//     // use fast-equals for other objects
-//     return deepEqual(a, b);
-//   }
-// );
 
 function useDeepCompareMemoize(value) {
   const ref = React.useRef();

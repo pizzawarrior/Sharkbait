@@ -11,75 +11,6 @@
   */
 }
 
-.activeJobs,
-.jobCredits {
-  height: 100%;
-}
-
-.activeJobs,
-.activeJobsContainer,
-.jobViewsContainer,
-.jobViewsBlock,
-.jobCredits,
-.jobCreditsContainer{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.jobViewsContainer,
-.activeJobsContainer,
-.jobCreditsContainer {
-  padding: 1rem;
-  border-radius: 50%;
-  width: 5rem;
-  height: 5rem;
-}
-
-.jobViewsContainer {
-  border: 1px solid #7c3aed;
-  background-color: #ede9fe;
-  color: #7c3aed;
-}
-
-.activeJobsContainer {
-  border: 1px solid #2563eb;
-  background-color: #dbeafe;
-  color: #2563eb;
-}
-
-.jobCreditsContainer {
-  color: #b45309;
-  border: 1px solid #b45309;
-  background-color: #fef3c7;
-}
-
-.activeJobsNum,
-.jobViews,
-.jobCreditsNum {
-  font-size: 3rem;
-  font-weight: 600;
-}
-
-.jobViewsBlock {
-  flex-direction: column;
-}
-
-.jobTitle {
-  margin-bottom: 1rem;
-  font-weight: 500;
-  display: block;
-}
-
-.totalJobViewsGrid {
-  list-style: none;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 2rem;
-  padding: 0;
-}
-
 .tileLayout {
   width: 100%;
     /* 
@@ -97,12 +28,12 @@
   flex-direction: row; /* Arrange the Bars Horizontally using FlexBox  */
   align-items: flex-end; /* Have the bars start at the bottom and go up */
   justify-content: center; /* Center the bars in the middle of the screen */
-  margin: 50px;
+  margin: 25px;
 }
 
 .bar {
-  background-color: #3aa70f; /* Have each bar be a nice green */
-  width: 10px; /* The animation will start with each bar being 10px wide, and then expand outwards */
+  background-color: #095d99; /* Have each bar be a nice blue */
+  width: 15px; /* The animation will start with each bar being 10px wide, and then expand outwards */
 }
 
 

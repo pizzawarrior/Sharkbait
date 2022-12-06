@@ -31,9 +31,6 @@ function Form() {
            });
   }
 
-    // console.log(SubmitForm.name)
-    
-
     return (
       <form
       className = "incident-form"
@@ -42,7 +39,7 @@ function Form() {
         <label
         className = "form-fields"
         >
-          Name:
+          Victim Name:
           <input
           value={SubmitForm.name}
           onChange={e => {
@@ -54,10 +51,11 @@ function Form() {
           className = "form-inputs"
           />
         </label>
+
         <label
-        className = "form-fields"
+          className = "form-fields"
         >
-          Location:
+          Incident Location:
         <input
           value={SubmitForm.location}
           onChange={e => {
@@ -69,10 +67,11 @@ function Form() {
           className = "form-inputs"
         />
         </label>
+
         <label
         className = "form-fields"
         >
-          Date:
+          Date of Incident:
         <input
             value={SubmitForm.date}
             onChange={e => {
@@ -84,12 +83,13 @@ function Form() {
            className = "form-inputs"
         />
       </label>
-      <button 
-        className = "form-fields"
-        type = 'submit'
-      >
-         submit 
-      </button>
+
+        <button 
+          className = "form-fields"
+          type = 'submit'
+        >
+         Submit 
+        </button>
       </form>
     );
    }
