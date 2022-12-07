@@ -41,14 +41,14 @@ function Form() {
         >
           Victim Name:
           <input
-          value={SubmitForm.name}
-          onChange={e => {
-            setSubmitForm({
+            value={SubmitForm.name}
+            onChange={e => {
+              setSubmitForm({
               ...SubmitForm,
               name: e.target.value
-            });
-          }}
-          className = "form-inputs"
+              });
+            }}
+            className = "form-inputs"
           />
         </label>
 
@@ -85,7 +85,7 @@ function Form() {
       </label>
 
         <button 
-          className = "form-fields"
+          className = "submit-btn"
           type = 'submit'
         >
          Submit 
