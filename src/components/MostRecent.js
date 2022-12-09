@@ -12,24 +12,23 @@ const Map = ({
   style,
   ...options
 }) => {
-  const ref = React.useRef(null);
-  const [map, setMap] = React.useState();
+    const ref = React.useRef(null);
+    const [map, setMap] = React.useState();
+    const [Geocoder, setGeocoder] = React.useState();
 
-  const [Geocoder, setGeocoder] = React.useState();
-
-React.useEffect(() => {
-  if (!Geocoder) {
+    React.useEffect(() => {
+    if (!Geocoder) {
     setGeocoder(new window.google.maps.Geocoder());
-  }
-}, 
-[Geocoder]);
+    }
+  }, 
+    [Geocoder]);
 
   React.useEffect(() => {
     if (ref.current && !map) {
       setMap(new window.google.maps.Map(ref.current, {}));
-    }
-  }, 
-  [ref, map]);
+      }
+    }, 
+    [ref, map]);
 
   // because React does not do deep comparisons, a custom hook is used
   // see discussion in https://github.com/googlemaps/js-samples/issues/946
@@ -95,16 +94,13 @@ const Marker = (options) => {
   return null;
 };
 
-
 function useDeepCompareMemoize(value) {
   const ref = React.useRef();
-
-  if (!isEqual(value, ref.current)) {
+    if (!isEqual(value, ref.current)) {
     // if (!deepCompareEqualsForMaps(value, ref.current)) {
     ref.current = value;
   }
-
-  return ref.current;
+    return ref.current;
 }
 
 function useDeepCompareEffectForMaps(
@@ -120,16 +116,16 @@ const MostRecent = ({imageSource, imageAlt}) => {
     <h1>
       {status}
       </h1>;
-  };
+    };
 
-const [mostRecent, setMostRecent] = useState([
-])
+  const [mostRecent, setMostRecent] = useState([
+  ])
 
-//Wouldn't this be at odds with the Loader call at the very top?
-const [center, setCenter] = React.useState({
-  lat: 37.6,
-  lng: -120.55,
-});
+  //Wouldn't this be at odds with the Loader call at the very top?
+  const [center, setCenter] = React.useState({
+    lat: 37.6,
+    lng: -120.55,
+  });
 
    useEffect(() => {
     fetch('/MostRecent', {
@@ -148,10 +144,10 @@ const [center, setCenter] = React.useState({
          })
         .catch((error) => {
           console.error('Error:', error);
-        });
-    },
- []
-)  
+          });
+        },
+      []
+    )  
 
     return (
       <Wrapper 
@@ -174,11 +170,10 @@ const [center, setCenter] = React.useState({
             >
           </Map>
       </Wrapper>
-      );  
-    };
+    );  
+  };
 
 //TO DO:
 //Create a Google.js file inside of a Lib folder (same level as components) later, add all the google mapping code 
-
 
 export default MostRecent
