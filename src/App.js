@@ -58,28 +58,16 @@ const widgets = [
   
    {
     header: "Top Incident Locations in California",
-    body: <TopLocations
-    //body: <Map
-    />
+    body: <TopLocations/>
 },
 
-  // {
-  //   //header: "Where are shark encounters occurring in California?",
-  //   body: <StaticImage 
-  //   imageSource ={CA_Incidents_by_County}
-  //   imageAlt = "CA Pie Chart Counties"
-  //   />,
-  // },
-
 {
-    body: <MostRecent
-    />
+    body: <MostRecent/>
 },
 
   {
     header: "Report A New Incident",
-    body: <IncidentForm
-  />
+    body: <IncidentForm/>
   }
 ];
 
@@ -90,7 +78,6 @@ const handleReposition = e => {
 
  return (
     <div className="App">
-      {/* <h1>Sharktastical</h1> */}
       <TileLayout
         className="tileLayout"
         columns={4}

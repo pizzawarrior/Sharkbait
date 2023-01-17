@@ -5,8 +5,6 @@ import Geocode from "react-geocode";
 
 
 const Map = ({
-  //onClick,
-  //onIdle,
   children, 
   incidents,
   style,
@@ -16,7 +14,7 @@ const Map = ({
     const [map, setMap] = React.useState();
     const [Geocoder, setGeocoder] = React.useState();
 
-    React.useEffect(() => {
+    React.useEffect( () => {
     if (!Geocoder) {
     setGeocoder(new window.google.maps.Geocoder());
     }
