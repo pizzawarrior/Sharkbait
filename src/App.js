@@ -3,7 +3,6 @@ import "@progress/kendo-theme-material/dist/all.css";
 import "./App.css";
 import { TileLayout } from "@progress/kendo-react-layout";
 import { useState } from "react";
-import "./App.css";
 import StaticImage from "./components/StaticImage";
 import IncidentForm from "./components/IncidentForm";
 import MostRecent from "./components/MostRecent";
